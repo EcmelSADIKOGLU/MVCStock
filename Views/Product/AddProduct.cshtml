@@ -1,0 +1,48 @@
+﻿@model MVCStock.Models.Entity.tblProduct
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div>
+        <label>Ürün Adı</label>
+        @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductName, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <label>Ürün Markası</label>
+        @Html.TextBoxFor(m => m.ProductBrand, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductBrand, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <label>Ürün Kategorisi</label>
+        @Html.DropDownListFor(m => m.tblCategory.CategoryID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Ürün Fiyatı</label>
+        @Html.TextBoxFor(m => m.ProductPrice, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductPrice, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <label>Ürün Stok</label>
+        @Html.TextBoxFor(m => m.ProductStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductStock, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-info"id="btnAddProduct">Ürün Ekle</button>
+    </div>
+    <script>
+        $('#btnAddProduct').click(function () {
+            alert('Ürün ekleme işlemi yapıldı...');
+        });
+    </script>
+
+</form>
+
+

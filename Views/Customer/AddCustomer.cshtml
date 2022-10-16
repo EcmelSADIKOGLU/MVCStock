@@ -1,0 +1,29 @@
+﻿@model MVCStock.Models.Entity.tblCustomer
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div>
+        <label>Müşteri Adı</label>
+        @Html.TextBoxFor(m => m.CustomerName, new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.CustomerName,"",new {@style = "color:red"})
+    </div>
+    <br />
+    <div>
+        <label>Müşteri Soyadı</label>
+        @Html.TextBoxFor(m => m.CustomerSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CustomerSurname, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-info"id="btnAddCustomer">Müşteri Ekle</button>
+    </div>
+    <script>
+        $('#btnAddCustomer').click(function () {
+            alert('Müşteri ekleme işlemi yapıldı...');
+        });
+    </script>
+</form>
+

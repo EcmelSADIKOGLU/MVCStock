@@ -1,0 +1,38 @@
+﻿@model MVCStock.Models.Entity.tblProduct
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+    
+<br />
+<form method="post" class="form-group">
+    <input type="text" hidden name="ProductID" value=@Model.ProductID />
+
+    <label>Ürün Adı</label>
+    @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control", required = "required", maxlength = 50, type = "text" })
+
+    <br />
+    <label>Ürünün Markası</label>
+    @Html.TextBoxFor(m => m.ProductBrand, new { @class = "form-control", required = "required", maxlength = 50, type = "text" })
+
+    <br />
+    <label>Ürünün Kategorisi</label>
+    @Html.DropDownListFor(m => m.tblCategory.CategoryID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+
+    <br />
+    <label>Ürünün Fiyatı</label>
+    @Html.TextBoxFor(m => m.ProductPrice, new { @class = "form-control", required = "required", type = "text" })
+
+    <br />
+    <label>Ürünün Stok Bilgisi</label>
+    @Html.TextBoxFor(m => m.ProductStock, new { @class = "form-control", required = "required", type = "text" })
+
+    <br />
+    <button class="btn btn-primary"id="btnUpdateProduct">Ürünü Güncelle</button>
+    <script>
+        $('#btnUpdateProduct').click(function () {
+            alert('Ürün Güncellendi...');
+        });
+    </script>
+</form>
+

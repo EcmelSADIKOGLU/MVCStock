@@ -1,0 +1,41 @@
+﻿@using MVCStock.Models.Entity;
+@model List<tblCustomer>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<table id="CustomerTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.CustomerID</th>
+                <td>@item.CustomerName</td>
+                <td>@item.CustomerSurname</td>
+                <td>@Html.ActionLink("Sil", "DeleteProduct", new { id = item.CustomerID }, new { @class = "btn btn-danger", onclick = "return confirm('Veri silinsin mi?')" })</td>
+                <td><a href="/Customer/UpdateCustomer/@item.CustomerID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#CustomerTable').DataTable();
+</script>
+<a href="/Customer/AddCustomer" class="btn btn-primary">Müşteri Ekle</a>
+
+

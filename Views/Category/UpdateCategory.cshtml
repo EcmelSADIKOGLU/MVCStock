@@ -1,0 +1,22 @@
+﻿@model MVCStock.Models.Entity.tblCategory
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <input type="text" hidden name="CategoryID" value="@Model.CategoryID" />
+    <label>Kategori Adı</label>
+    <br />
+    @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.CategoryName, "", new { @style = "color:red" })
+    <br />
+    <button class="btn btn-info" id="btnUpdateCategory">Kategoriyi Güncelle</button>
+    <script>
+        $('#btnUpdateCategory').click(function () {
+            alert('Kategori Güncellendi...');
+        });
+    </script>
+</form>
+
+

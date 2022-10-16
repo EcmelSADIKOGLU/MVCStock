@@ -1,0 +1,73 @@
+﻿@using MVCStock.Models.Entity;
+@model List<tblSale>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table id="SaleTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Satılan Ürün</td>
+            <td>Satılan Müşteri</td>
+            <td>Satılan Miktar</td>
+            <td>Ücret</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in Model)
+            {
+                <td>@item.SaleID</td>
+                <td>@item.tblProduct.ProductName</td>   
+                <td>@item.tblCustomer.CustomerName @item.tblCustomer.CustomerSurname</td>
+                <td>@item.SalePiece</td>
+                <td>@item.SalePrice</td>
+            }
+        </tr>
+    </tbody>
+</table>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#SaleTable').DataTable();
+</script>
+
+
+
+
+
+
+
+
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+        Satış Ekle
+    </button>
+
+    <div class="modal"id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Satış Yapma Ekranı</h2>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <label>Satış ID</label>
+                        <input type="text" name="SaleProduct" class="form-control" />
+                        <br />
+                        <label>Satılan Ürün</label>
+                        <input type="text" name="SaleProduct" class="form-control" />
+                        <br />
+                        <label>Satış ID</label>
+                        <input type="text" name="SaleID" class="form-control" />
+                        <br />
+                        <label>Satılan Ürün</label>
+                        <input type="text" name="SaleProduct" class="form-control" />zs
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>*@

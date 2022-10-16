@@ -1,0 +1,28 @@
+﻿@model MVCStock.Models.Entity.tblCategory
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+
+<form method="post" class="form-group">
+    @*<div>
+        <label>kategori adı</label>
+        <input type="text" class="form-control" placeholder="kategori adı..." required name="categoryname" />
+    </div>*@
+    <div>
+        <label>Kategori Adı</label>
+        @Html.TextBoxFor(m => m.CategoryName, new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.CategoryName,"",new {@style = "color:red"})
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-info"id="btnAddCategory">Kategori Ekle</button>
+    </div>
+    <script>
+        $('#btnAddCategory').click(function () {
+            alert('Kategori ekleme işlemi yapıldı...');
+        });
+    </script>
+</form>

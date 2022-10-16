@@ -1,0 +1,26 @@
+﻿@model MVCStock.Models.Entity.tblCustomer
+@{
+    ViewBag.Title = "UpdateCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+<form method="post">
+    <input type="text" hidden name="CustomerID" value=@Model.CustomerID />
+    <label>Müşteri Adı</label>
+    @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.CustomerName, "", new { @style = "color:red" })
+
+    <br />
+    <label>Müşteri Soyadı</label>
+    @Html.TextBoxFor(m => m.CustomerSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.CustomerSurname, "", new { @style = "color:red" })
+    <br />
+    <button class="btn btn-info"id="btnUpdateCustomer">Müşteriyi Güncelle</button>
+    <script>
+        $('#btnUpdateCustomer').click(function () {
+            alert('Müşteri Güncellendi...');
+        });
+    </script>
+</form>
+
